@@ -37,7 +37,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = prompt("Please enter:");
+const playerSelection = prompt("Please enter:").toLowerCase();
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
  
