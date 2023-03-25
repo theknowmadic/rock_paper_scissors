@@ -49,10 +49,10 @@ const getComputerChoice = () => {
 
 // Function with a for-loop running the game 5 times
 const game = () => {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 1; i < 6; i++) {
         const playerSelection = prompt("Please Choose: ", "Rock, Paper, or Scissors").toLowerCase()
         const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection))
+        console.log(i, playRound(playerSelection, computerSelection))
     }
 
 // Conditional to determine who won
