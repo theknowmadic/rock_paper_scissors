@@ -1,4 +1,4 @@
-let playerScore = 0
+let playerSore = 0
 let compScore = 0
 
 // Function makes the computer generate either rock, paper, or scissors
@@ -42,12 +42,11 @@ function getComputerChoice() {
  
 
 const playerSelection = prompt("Please enter:").toLowerCase();
-console.log(playRound(playerSelection, computerSelection));
 
 const game = () => {
     for (let i = 0; i < 5; i++) {
         const computerSelection = getComputerChoice();
-
+        playRound(playerSelection, computerSelection)
     }
 }
 
