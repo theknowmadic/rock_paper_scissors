@@ -45,24 +45,45 @@ const getComputerChoice = () => {
         } 
 
     } 
- 
+/////////////////////////////////////////////////////////////////////
 
-// Function with a for-loop running the game 5 times
-const game = () => {
-    for (let i = 1; i < 6; i++) {
-        const playerSelection = prompt("Please Choose: ", "Rock, Paper, or Scissors").toLowerCase()
-        const computerSelection = getComputerChoice();
-        console.log(i, playRound(playerSelection, computerSelection))
-    }
 
-// Conditional to determine who won
-if (playerScore > compScore) {
-    return "You beat the computer!"
-} else if (playerScore < compScore) {
-    return "You got beat!"
-} else {
-    return "You got tied!"
-    }
-}
 
+function alertFunction() {
+    alert("YAY! YOU DID!");
+};
+
+
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert(button.id);
+    })
+})
+
+//////////////////////////////////////////////////////////////////////
+
+
+
+        // Function with a for-loop running the game 5 times
+// const game = () => {
+//    for (let i = 1; i < 6; i++) {
+//        const playerSelection = prompt("Please Choose: ", "Rock, Paper, or Scissors").toLowerCase()
+//        const computerSelection = getComputerChoice();
+//        console.log(i, playRound(playerSelection, computerSelection))
+//   }
+
+        // Conditional to determine who won
+//if (playerScore > compScore) {
+//    return "You beat the computer!"
+//} else if (playerScore < compScore) {
+//    return "You got beat!"
+//} else {
+//    return "You got tied!"
+//    }
+// }
+//    
+//
 console.log(game())
