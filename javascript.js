@@ -69,9 +69,18 @@ const computerPlay = () => {
 
 // Checking for score
 const checkForWinner = (playerScore, compScore) => {
-    if (playerScore === 5 || compScore === 5) {
+    if (playerScore === 5 ) {
         const h2 = document.createElement('h2')
-        h2 
+        h2.classList.add('player-won')
+        h2.innerText = `You won ${playerScore} to ${compScore}! Lovely!`
+        outcomeDiv.appendChild(h2)
+    }
+    
+    if (compScore === 5) {
+        const h2 = document.createElement('h2')
+        h2.classList.add('computer-won')
+        h2.innerText = `Unfortunately you lost ${playerScore} to ${compScore}. Better luck next time!`
+        outcomeDiv.appendChild(h2)
     }
 }
 
@@ -80,7 +89,7 @@ rockButton.addEventListener('click', () => {
     const computerSelection = computerPlay()
     const playerSelection = 'rock'
     playRound(playerSelection, computerSelection)
-    
+    checkForWinner(playerScore, compScore)
 })
 
 paperButton.addEventListener('click', () => {
