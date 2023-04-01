@@ -1,12 +1,14 @@
+// Variables
 let playerScore = 0
 let compScore = 0
 const rockButton = document.querySelector('.rock')
 const paperButton = document.querySelector('.paper')
 const scissorsButton = document.querySelector('.scissors')
+const outcomeDiv = document.querySelector('.outcome')
 
 
 // Function makes the computer generate either rock, paper, or scissors
-const getComputerChoice = () => {
+const computerPlay = () => {
     const randomNumber = Math.floor(Math.random()*3)
     switch (randomNumber) {
         case 0:
@@ -23,33 +25,68 @@ const getComputerChoice = () => {
     const playRound = (playerSelection, computerSelection) => {
 
         if (playerSelection === "rock" && computerSelection === "rock") {
-            return "It is a tie! Rock against rock"
+            // DOM element p.innerText
+            const p = document.createElement('p')
+            p.innerText = `It is a tie! Rock against rock`
+            outcomeDiv.appendChild(p)
         } else if (playerSelection === "rock" && computerSelection === "paper") {
             compScore++
-            return "You loose! Paper beats rock"
+            const p = document.createElement('p')
+            p.innerText = `You loose! Paper beats rock`
+            outcomeDiv.appendChild(p)
         } else if (playerSelection === "rock" && computerSelection === "scissors") {
             playerScore++
-            return "You win! Rock beats scissors"
+            const p = document.createElement('p')
+            p.innerText = `You win! Rock beats scissors`
+            outcomeDiv.appendChild(p)
         } else if (playerSelection === "paper" && computerSelection === "paper") {
-            return "It is a tie! Paper against paper"
+            const p = document.createElement('p')
+            p.innerText = `It is a tie! Paper against paper`
+            outcomeDiv.appendChild(p)
         } else if (playerSelection === "paper" && computerSelection === "rock") {
             playerScore++
-            return "You win! Paper beats rock"
+            const p = document.createElement('p')
+            p.innerText = `You win! Paper beats rock`
+            outcomeDiv.appendChild(p)
         } else if (playerSelection === "paper" && computerSelection === "scissors") {
             compScore++
-            return "You loose! Scissors beats paper"
+            const p = document.createElement('p')
+            p.innerText = `You loose! Scissors beats paper`
+            outcomeDiv.appendChild(p)
         } else if (playerSelection === "scissors" && computerSelection === "scissors") {
             return "It is a tie! Scissors against scissors"
         } else if (playerSelection === "scissors" && computerSelection === "rock") {
             compScore++
-            return "You loose! Rock beats scissors"
+            const p = document.createElement('p')
+            p.innerText = `You loose! Rock beats scissors`
+            outcomeDiv.appendChild(p)
         } else if (playerSelection === "scissors" && computerSelection === "paper") {
             playerScore++
-            return "You win! Scissors beat paper"
+            const p = document.createElement('p')
+            p.innerText = `You win! Scissors beat paper`
+            outcomeDiv.appendChild(p)
         } 
 
     } 
- 
+
+// EventListeners
+rockButton.addEventListener('click', () => {
+    const computerSelection = computerPlay()
+    const playerSelection = 'rock'
+    playRound(playerSelection, computerSelection)
+})
+
+paperButton.addEventListener('click', () => {
+    const computerSelection = computerPlay()
+    const playerSelection = 'paper'
+    playRound(playerSelection, computerSelection)
+})
+
+scissorsButton.addEventListener('click', () => {
+    const computerSelection = computerPlay()
+    const playerSelection = 'scissors'
+    playRound(playerSelection, computerSelection)
+})
 
 // Function with a for-loop running the game 5 times
 //const game = () => {
