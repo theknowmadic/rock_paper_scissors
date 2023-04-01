@@ -87,11 +87,18 @@ const checkForWinner = (playerScore, compScore) => {
     }
 }
 
+// Function for running-score
+const updateScores = (playerScore, computerScore) => {
+    playerScoreSpan.innerText = `Player Scores: ${playerScore}`
+    computerScoreSpan.innerText = `Computer Scores: ${computerScore}`
+}
+
 // EventListeners
 rockButton.addEventListener('click', () => {
     const computerSelection = computerPlay()
     const playerSelection = 'rock'
     playRound(playerSelection, computerSelection)
+    updateScores(playerScore, compScore)
     checkForWinner(playerScore, compScore)
 })
 
@@ -99,12 +106,16 @@ paperButton.addEventListener('click', () => {
     const computerSelection = computerPlay()
     const playerSelection = 'paper'
     playRound(playerSelection, computerSelection)
+    updateScores(playerScore, compScore)
+    checkForWinner(playerScore, compScore)
 })
 
 scissorsButton.addEventListener('click', () => {
     const computerSelection = computerPlay()
     const playerSelection = 'scissors'
     playRound(playerSelection, computerSelection)
+    updateScores(playerScore, compScore)
+    checkForWinner(playerScore, compScore)
 })
 
 // Function with a for-loop running the game 5 times
