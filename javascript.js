@@ -6,7 +6,6 @@ const paperButton = document.querySelector('.paper')
 const scissorsButton = document.querySelector('.scissors')
 const outcomeDiv = document.querySelector('.outcome')
 
-
 // Function makes the computer generate either rock, paper, or scissors
 const computerPlay = () => {
     const randomNumber = Math.floor(Math.random()*3)
@@ -20,12 +19,11 @@ const computerPlay = () => {
     }
 }
 
-
 // Function that plays a single round of the game against the computer 
     const playRound = (playerSelection, computerSelection) => {
 
         if (playerSelection === "rock" && computerSelection === "rock") {
-            // DOM element p.innerText
+            // DOM elements p
             const p = document.createElement('p')
             p.innerText = `It is a tie! Rock against rock`
             outcomeDiv.appendChild(p)
@@ -69,11 +67,20 @@ const computerPlay = () => {
 
     } 
 
+// Checking for score
+const checkForWinner = (playerScore, compScore) => {
+    if (playerScore === 5 || compScore === 5) {
+        const h2 = document.createElement('h2')
+        h2 
+    }
+}
+
 // EventListeners
 rockButton.addEventListener('click', () => {
     const computerSelection = computerPlay()
     const playerSelection = 'rock'
     playRound(playerSelection, computerSelection)
+    
 })
 
 paperButton.addEventListener('click', () => {
